@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Work/Break Timer
+  </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="mystyle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="index.js"></script>
+</head>
+<body>
+  <h1>Manage Your Time</h1>
+  <main ng-app="TimerApp" ng-controller="MainCtrl" ng-cloak>
+    <div class="session">
+      <div class="breakCtrl">
+        <p ng-click="setBreak()" class="reset" title="Set break length">BREAK LENGTH</p>
+        <button class="minus" ng-click="breakLengthChange(-1)"><span class="glyphicon glyphicon-minus"></span></button>
+        <span class="time">{{breakLength}}</span>
+        <button class="plus" ng-click="breakLengthChange(1)"><span class="glyphicon glyphicon-plus"></span></button>
+      </div>
+      <div class="sessionCtrl">
+        <p ng-click="setSession()" class="reset" title="Set session length">SESSION LENGTH</p>
+        <button class="minus" ng-click="sessionLengthChange(-1)"><span class="glyphicon glyphicon-minus"></span></button>
+        <span class="time">{{sessionLength}}</span>
+        <button class="plus" ng-click="sessionLengthChange(1)"><span class="glyphicon glyphicon-plus"></span></button>
+      </div>
+    </div>
+    <div ng-click="toggleTimer()" class="timer">
+      <p class="title">{{sessionName}}</p>
+      <p>{{timeLeft}}</p>
+      <span class="fill" ng-style="{'height':fillHeight, 'background-color':fillColor }"></span>
+    </div>
+  </main>
+
+</body>
+</html>
